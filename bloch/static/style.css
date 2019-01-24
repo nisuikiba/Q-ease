@@ -138,16 +138,6 @@ body {
     border-radius: 20px;
 }
 
-.ball {
-    width: 250px;
-    height: 250px;
-    margin: 10px auto;
-    border-radius: 50%;
-    background-color: #000;
-    background-image: radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);
-    background-image: -webkit-radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);
-}
-
 h1{
     font-size: 25px;
     color:rgb(226, 21, 89);
