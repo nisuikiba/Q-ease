@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Try Bloch!</title>
+        
+        {% load static %}
+        <script src="{{ STATIC_URL }}vector.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+        <script src="{{ STATIC_URL }}OrbitControls.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
+        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}apple-touch-icon-180x180.png">　
+
+    </head>
+    <body>
+        
+        <h1>Try Bloch!</h1>
+        <h2>Visualization of Single-Qubit Gates work with Bloch sphere</h2>
+        
+        <div class="center">
+            <canvas id="myCanvas"></canvas></div>
+
+        <div class="gatebox adjust">
+            <br>
+            
+            &nbsp;&nbsp;&nbsp;
+            <a class="x" id=x>X</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="z" id=z>Z</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="h" id=h>H</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="s" id=s>S</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="s" id=st>S<sup><small>&dagger;</small></sup></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="t" id=t>T</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="t" id=tt>T<sup><small>&dagger;</small></sup></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn" id=start>RESTART</a></div>
+            <br>
+
+        <div class="center">
+            <canvas id="myCanvas"></canvas></div>
+
+    </body>
+</html>
