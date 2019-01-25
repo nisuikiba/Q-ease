@@ -78,18 +78,15 @@ function init() {
     scene.add(arrowHelper);
 
     //軸の名前を描画
-    const fontLoader = new THREE.FontLoader();
-    fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
+    //const fontLoader = new THREE.FontLoader();
+    //fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
     // X
     const textXGeometry = new THREE.TextGeometry('x', {
-        font: font,
-        size: 10,
+        //font: font,
+        size: 20,
         height: 0,
         curveSegments: 0,
-        bevelEnabled: true,
-        bevelThickness: 0,
-        bevelSize: 0,
-        bevelSegments: 0
+        bevelEnabled: false,
     });
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
@@ -97,7 +94,6 @@ function init() {
     scene.add(textX);
     // Y
     // Z
-    });
     
     //レンダリング
     function tick() {
