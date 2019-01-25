@@ -182,10 +182,10 @@ function init() {
     //tゲート
     document.getElementById('t').onclick = function tgate(){
         if(flag < Math.PI/4){
-            target.setFromAxisAngle(Axis["y"], Math.PI/52);
+            target.setFromAxisAngle(Axis["y"], Math.PI/48);
             target.multiply(quaternion.clone());  
             quaternion.copy(target);  
-            flag += Math.PI/52;
+            flag += Math.PI/48;
             requestAnimationFrame(tgate);
         }else{
             flag = 0;
@@ -195,10 +195,10 @@ function init() {
     //ttゲート
     document.getElementById('tt').onclick = function ttgate(){
         if(flag < Math.PI/4){
-            target.setFromAxisAngle(Axis["y"], -Math.PI/52);
+            target.setFromAxisAngle(Axis["y"], -Math.PI/48);
             target.multiply(quaternion.clone());  
             quaternion.copy(target);  
-            flag += Math.PI/52;
+            flag += Math.PI/48;
             requestAnimationFrame(ttgate);
         }else{
             flag = 0;
