@@ -79,7 +79,7 @@ function init() {
 
     //軸の名前を描画
     const fontLoader = new THREE.FontLoader();
-    fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
+    fontLoader.load('fonts/helvetiker_regular.typeface.json', function(font) {
     // X
     const textXGeometry = new THREE.TextGeometry('xxxxxxx', {
         font: font,
