@@ -141,10 +141,10 @@ body {
 .circle {
     width: 100px;
     height: 100px;
-    margin-top: 0;
-    margin-left: 0;
+    margin: 0px;
+    padding: 0px;
     position: fixes; top: 0; left: 0;
-    border-radius: 50%;
+    border-radius: 20%;
     background-color: rgb(221, 221, 221);
     /*background-image: radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);
     background-image: -webkit-radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);*/
