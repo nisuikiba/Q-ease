@@ -64,7 +64,7 @@ function init() {
     const fontLoader = new THREE.FontLoader();
     fontLoader.load('fonts/helvetiker_regular.typeface.json', function(font) {
     //x
-    const textXGeometry = new THREE.TextGeometry('xxxxxxx', {
+    const textXGeometry = new THREE.TextGeometryParameters('xxxxxxx', {
         font: font,
         size: 120,
         height: 10,
