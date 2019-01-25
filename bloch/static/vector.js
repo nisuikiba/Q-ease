@@ -31,23 +31,6 @@ function init() {
     controls.enableDamping = true;
     controls.dampingFactor = 0.2;
 
-    //球を作成
-    const geometry = new THREE.SphereGeometry(250, 25, 25);
-    const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    //ワイヤフレーム描画
-    const geo = new THREE.EdgesGeometry(sphere.geometry);
-    const mat = new THREE.LineBasicMaterial({color: 0xBDBDBD,linewidth:2});
-    const wireframe = new THREE.LineSegments(geo, mat);
-    sphere.add(wireframe);
-    
-    // 平行光源
-    const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
-    directionalLight.position.set(20, 10, 30);
-    scene.add(directionalLight);
-
     //ベクトル描画
     const from_x = new THREE.Vector3(0, 0, 0);
     const to_x = new THREE.Vector3(0, 0, 1);
@@ -95,6 +78,23 @@ function init() {
     //y
     //z
 });
+
+    //球を作成
+    const geometry = new THREE.SphereGeometry(250, 25, 25);
+    const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    //ワイヤフレーム描画
+    const geo = new THREE.EdgesGeometry(sphere.geometry);
+    const mat = new THREE.LineBasicMaterial({color: 0xBDBDBD,linewidth:2});
+    const wireframe = new THREE.LineSegments(geo, mat);
+    sphere.add(wireframe);
+    
+    // 平行光源
+    const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
+    directionalLight.position.set(20, 10, 30);
+    scene.add(directionalLight);
     
     //レンダリング
     function tick() {
