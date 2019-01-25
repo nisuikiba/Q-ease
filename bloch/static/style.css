@@ -172,6 +172,7 @@ h3 {
     margin: 0;
     position: fixed; 
     top: 0;
+    left:0;
     text-align: center;
     color: rgb(226, 21, 89);
     padding: 8px 16px;
