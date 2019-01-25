@@ -69,16 +69,19 @@ function init() {
         size: 120,
         height: 10,
         curveSegments: 12
-    });
+    }
+    );
     textGeometry.center();
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(500, 10, 0);
+    textX.position.set(200, 10, 0);
     scene.add(textX);
     //y
     //z
-});
+}
+);
 
+/*
     //球を作成
     const geometry = new THREE.SphereGeometry(250, 25, 25);
     const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
@@ -90,6 +93,7 @@ function init() {
     const mat = new THREE.LineBasicMaterial({color: 0xBDBDBD,linewidth:2});
     const wireframe = new THREE.LineSegments(geo, mat);
     sphere.add(wireframe);
+    */
     
     // 平行光源
     const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
