@@ -130,11 +130,11 @@ body {
 }
 
 .gatebox {
-    padding: 1em;
+    padding: 0.5em 1em;
     margin: 10px auto;
-    width: 900px;
+    width: 1000px;
     text-align: center;
-    height: 100px;
+    height: 140px;
     background: #f0f0f0;/*背景色*/
     border-radius: 20px;
 }
