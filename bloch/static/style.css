@@ -139,21 +139,6 @@ body {
     border-radius: 20px;
 }
 
-/*
-.circle {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    position: fixes; top: 0; left: 0;
-    border-radius: 20%;
-    background-color: rgb(221, 221, 221);
-    background-image: radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);
-    background-image: -webkit-radial-gradient(60px 60px, ellipse farthest-corner, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 90%);
-}
-*/
-
 h1{
     font-size: 22px;
     color:rgb(226, 21, 89);
@@ -176,7 +161,7 @@ h3 {
     text-align: center;
     color: rgb(226, 21, 89);
     padding: 8px 16px;
-    box-shadow: 0px 2px 4px gray;
+    box-shadow: 0px 2px 8px gray;
     font-size: 20px;
 }
 
