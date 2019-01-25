@@ -82,7 +82,7 @@ function init() {
     fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
     // X
     const textXGeometry = new THREE.TextGeometry('x', {
-        //font: font,
+        font: font,
         size: 10,
         height: 0,
         curveSegments: 0,
@@ -93,7 +93,7 @@ function init() {
     });
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(maxX + axisXHeadLength * 2, 0, 0);
+    textX.position.set(120, 0, 0);
     scene.add(textX);
     // Y
     // Z
