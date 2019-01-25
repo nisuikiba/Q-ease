@@ -9,9 +9,12 @@ body {
 }
 
 header {
-    background-color: #da2932;
-    height: 100px;
+    background-color: rgb(226, 21, 89);
+    height: 50px;
     width: 100%;
+    position:fixed;
+    margin: 0;
+    padding: 0;
 }
 
 header p{
