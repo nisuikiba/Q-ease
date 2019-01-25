@@ -56,7 +56,7 @@ function init() {
     const from = new THREE.Vector3(0, 0, 0);
     const to = new THREE.Vector3(0, 1, 0);
     const direction = to.clone().sub(from);
-    const length = 250;
+    const length = 280;
     const arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0xDF013A, 25, 20);
     scene.add(arrowHelper);
 
@@ -84,7 +84,7 @@ function init() {
 */
 
     //球を作成
-    const geometry = new THREE.SphereGeometry(250, 25, 25);
+    const geometry = new THREE.SphereGeometry(280, 28, 28);
     const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
