@@ -81,19 +81,13 @@ function init() {
     //const fontLoader = new THREE.FontLoader();
     //fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
     // X
-    /*
-    const textXGeometry = new THREE.TextGeometry('x', {
-        //font: font,
-        size: 20,
-        height: 5,
-        curveSegments: 0,
-        bevelEnabled: false,
-    });
+    
+    const textXGeometry = new THREE.TextGeometry('x', {});
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(100, 0, 0);
+    //textX.position.set(100, 0, 0);
     scene.add(textX);
-    */
+    
     // Y
     // Z
     
