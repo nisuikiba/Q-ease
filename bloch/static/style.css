@@ -141,6 +141,8 @@ body {
 .circle {
     width: 100px;
     height: 100px;
+    margin-top: 0;
+    margin-left: 0;
     position: fixes; top: 0; left: 0;
     border-radius: 50%;
     background-color: rgb(221, 221, 221);
