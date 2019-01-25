@@ -191,10 +191,10 @@ function init() {
     //ttゲート
     document.getElementById('tt').onclick = function ttgate(){
         if(flag < Math.PI/4){
-            target.setFromAxisAngle(Axis["y"], -Math.PI/50);
+            target.setFromAxisAngle(Axis["y"], -Math.PI/52);
             target.multiply(quaternion.clone());  
             quaternion.copy(target);  
-            flag += Math.PI/50;
+            flag += Math.PI/52;
             requestAnimationFrame(ttgate);
         }else{
             flag = 0;
