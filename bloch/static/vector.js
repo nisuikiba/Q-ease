@@ -83,12 +83,12 @@ function init() {
     // X
     const textXGeometry = new THREE.TextGeometry('x', {
         font: font,
-        size: 100,
-        height: 0,
+        size: 120,
+        height: 10,
     });
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(100, 0, 0);
+    textX.position.set(120, 0, 0);
     scene.add(textX);
     // Y
     // Z
