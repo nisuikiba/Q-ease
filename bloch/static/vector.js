@@ -102,7 +102,7 @@ function init() {
     
     //レンダリング
     function tick() {
-        sphere.rotation.y += 0.002;
+        //sphere.rotation.y += 0.002;
         renderer.render(scene, camera); 
         requestAnimationFrame(tick);
     }
