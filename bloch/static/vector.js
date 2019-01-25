@@ -80,18 +80,20 @@ function init() {
     //軸の名前を描画
     const fontLoader = new THREE.FontLoader();
     fontLoader.load('fonts/helvetiker_regular.typeface.json', function(font) {
-    // X
+    //x
     const textXGeometry = new THREE.TextGeometry('xxxxxxx', {
         font: font,
         size: 120,
         height: 10,
+        curveSegments: 12
     });
+    textGeometry.center();
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
     textX.position.set(120, 10, 0);
     scene.add(textX);
-    // Y
-    // Z
+    //y
+    //z
 });
     
     //レンダリング
