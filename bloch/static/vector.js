@@ -73,7 +73,7 @@ function init() {
     textGeometry.center();
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(120, 10, 0);
+    textX.position.set(500, 10, 0);
     scene.add(textX);
     //y
     //z
