@@ -60,21 +60,21 @@ function init() {
     const to_x = new THREE.Vector3(0, 0, 1);
     const direction_x = to_x.clone().sub(from_x);
     const length_x = 100;
-    const x_arrow = new THREE.ArrowHelper(direction_x.normalize(), from_x, length_x, 0x000000, 25, 20);
+    const x_arrow = new THREE.ArrowHelper(direction_x.normalize(), from_x, length_x, 0xA4A4A4, 10, 10);
     scene.add(x_arrow);
 
     const from_y = new THREE.Vector3(0, 0, 0);
     const to_y = new THREE.Vector3(1, 0, 0);
     const direction_y = to_y.clone().sub(from_y);
     const length_y = 100;
-    const y_arrow = new THREE.ArrowHelper(direction_y.normalize(), from_y, length_y, 0x000000, 25, 20);
+    const y_arrow = new THREE.ArrowHelper(direction_y.normalize(), from_y, length_y, 0xA4A4A4, 10, 10);
     scene.add(y_arrow);
 
     const from_z = new THREE.Vector3(0, 0, 0);
     const to_z = new THREE.Vector3(0, 1, 0);
     const direction_z = to_z.clone().sub(from_z);
     const length_z = 100;
-    const z_arrow = new THREE.ArrowHelper(direction_z.normalize(), from_z, length_z, 0x000000, 25, 20);
+    const z_arrow = new THREE.ArrowHelper(direction_z.normalize(), from_z, length_z, 0xA4A4A4, 10, 10);
     scene.add(z_arrow);
     
     //レンダリング
