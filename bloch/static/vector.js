@@ -81,7 +81,6 @@ function init() {
     const fontLoader = new THREE.FontLoader();
     fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
     // X
-    
     const textXGeometry = new THREE.TextGeometry('x', {
         font: font,
         size: 100,
@@ -91,9 +90,9 @@ function init() {
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
     textX.position.set(100, 0, 0);
     scene.add(textX);
-    
     // Y
     // Z
+});
     
     //レンダリング
     function tick() {
