@@ -49,13 +49,6 @@ function init() {
     scene.add(directionalLight);
 
     //ベクトル描画
-    const from = new THREE.Vector3(0, 0, 0);
-    const to = new THREE.Vector3(0, 1, 0);
-    const direction = to.clone().sub(from);
-    const length = 250;
-    const arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0xDF013A, 25, 20);
-    scene.add(arrowHelper);
-
     const from_x = new THREE.Vector3(0, 0, 0);
     const to_x = new THREE.Vector3(0, 0, 1);
     const direction_x = to_x.clone().sub(from_x);
@@ -76,6 +69,13 @@ function init() {
     const length_z = 100;
     const z_arrow = new THREE.ArrowHelper(direction_z.normalize(), from_z, length_z, 0xA4A4A4, 10, 10);
     scene.add(z_arrow);
+
+    const from = new THREE.Vector3(0, 0, 0);
+    const to = new THREE.Vector3(0, 1, 0);
+    const direction = to.clone().sub(from);
+    const length = 250;
+    const arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0xDF013A, 25, 20);
+    scene.add(arrowHelper);
     
     //レンダリング
     function tick() {
