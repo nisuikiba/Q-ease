@@ -78,14 +78,18 @@ function init() {
     scene.add(arrowHelper);
 
     //軸の名前を描画
-    //const fontLoader = new THREE.FontLoader();
-    //fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('fonts/helvetiker_bold.typeface.json', function(font) {
     // X
     
-    const textXGeometry = new THREE.TextGeometry('x', {});
+    const textXGeometry = new THREE.TextGeometry('x', {
+        font: font,
+        size: 100,
+        height: 0,
+    });
     const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
     const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    //textX.position.set(100, 0, 0);
+    textX.position.set(100, 0, 0);
     scene.add(textX);
     
     // Y
