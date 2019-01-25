@@ -81,7 +81,6 @@ function init() {
 }
 );
 
-/*
     //球を作成
     const geometry = new THREE.SphereGeometry(250, 25, 25);
     const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
@@ -93,7 +92,6 @@ function init() {
     const mat = new THREE.LineBasicMaterial({color: 0xBDBDBD,linewidth:2});
     const wireframe = new THREE.LineSegments(geo, mat);
     sphere.add(wireframe);
-    */
     
     // 平行光源
     const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
@@ -102,7 +100,7 @@ function init() {
     
     //レンダリング
     function tick() {
-        //sphere.rotation.y += 0.002;
+        sphere.rotation.y += 0.002;
         renderer.render(scene, camera); 
         requestAnimationFrame(tick);
     }
