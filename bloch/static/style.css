@@ -168,11 +168,11 @@ h2{
 
 h3 {
     background-color: rgb(226, 21, 89);
-    height: 30px;
     width: 100%;
     position:fixed;
     margin: 0;
     padding: 0;
+    position: fixes; top: 0;
     text-align: center;
     color: rgb(255, 255, 255);
     padding: 8px 16px;
