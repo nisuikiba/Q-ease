@@ -3,8 +3,8 @@ window.addEventListener('load', init);
 function init() {
 
     //サイズを指定
-    const width = 800;
-    const height = 450;
+    const width = 640;
+    const height = 360;
 
     //回転の基準となるベクトルを作成
     var Axis = {  
