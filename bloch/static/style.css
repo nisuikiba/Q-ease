@@ -192,3 +192,8 @@ h6{
 .center{
     text-align: center;
   }
+
+.info{
+    display: inline-block;
+    text-align: center;
+}
