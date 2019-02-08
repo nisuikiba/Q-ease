@@ -189,6 +189,12 @@ h6{
     display:inline; 
 }
 
+h7{
+    font-size: 9px;
+    color:rgb(226, 21, 89);
+    text-align: center;
+}
+
 .center{
     text-align: center;
   }
