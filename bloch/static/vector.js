@@ -4,7 +4,7 @@ function init() {
 
     //サイズを指定
     const width = 800;
-    const height = 400;
+    const height = 450;
 
     //回転の基準となるベクトルを作成
     var Axis = {  
