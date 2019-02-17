@@ -60,29 +60,6 @@ function init() {
     const arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0xDF013A, 25, 20);
     scene.add(arrowHelper);
 
-    //軸の名前を描画
-    /*
-    const fontLoader = new THREE.FontLoader();
-    fontLoader.load('fonts/helvetiker_regular.typeface.json', function(font) {
-    //x
-    const textXGeometry = new THREE.TextGeometryParameters('xxxxxxx', {
-        font: font,
-        size: 120,
-        height: 10,
-        curveSegments: 12
-    }
-    );
-    textGeometry.center();
-    const textXMaterial = new THREE.MeshPhongMaterial({color: 0xDF013A});
-    const textX = new THREE.Mesh(textXGeometry, textXMaterial);
-    textX.position.set(200, 10, 0);
-    scene.add(textX);
-    //y
-    //z
-}
-);
-*/
-
     //球を作成
     const geometry = new THREE.SphereGeometry(300, 30, 30);
     const material = new THREE.MeshLambertMaterial({color: 0xffffff, transparent: true, opacity: 0.4});
@@ -126,6 +103,19 @@ function init() {
            flag = 0;
        }
     }
+
+    //yゲート
+    document.getElementById('y').onclick = function ygate(){
+        if(flag < Math.PI){
+            target.setFromAxisAngle(Axis["x"], Math.PI/50);
+            target.multiply(quaternion.clone());  
+            quaternion.copy(target);  
+            flag += Math.PI/50;
+            requestAnimationFrame(ygate);
+        }else{
+            flag = 0;
+        }
+     }
 
     //zゲート
     document.getElementById('z').onclick = function zgate(){
