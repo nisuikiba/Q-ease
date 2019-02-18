@@ -25,9 +25,9 @@ function init() {
     const scene = new THREE.Scene();
 
     //カメラを作成
-    const camera = new THREE.PerspectiveCamera(45, 960 / 540);
+    const camera = new THREE.PerspectiveCamera(45, 800 / 450);
     camera.position.set(0, 0, +1000);
-    const controls = new THREE.OrbitControls(camera);
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.2;
 
