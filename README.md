@@ -15,7 +15,7 @@ Visualization of Single-Qubit Gates work with Bloch sphere.
 
 ---
 
-### Challenge Bloch!
+## Challenge Bloch!
 Realize Target State Using Single-Qubit Gates.
 
 ### How to play
