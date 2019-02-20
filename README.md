@@ -27,5 +27,5 @@ Realize Target State Using Single-Qubit Gates.
 - When "Your State" becomes the same state as "Target State", press the CHECK button and score. 
     - If you realize the target state with the ideal (minimum) number of steps, "*CONGRATULATION！You realized the target state with the ideal number of steps!*" Will be displayed. 
     - If you realize the target state with more steps than the ideal (minimum) step number, you will see "*WELL DONE！You realized the target state with more　steps than ideal.*"
-    - Depending on the problem, there is not just one combination of ideal steps.
+- Depending on the problem, there is not just one combination of ideal steps.
 
