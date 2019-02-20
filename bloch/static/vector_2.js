@@ -302,7 +302,7 @@ function init2() {
     }
 
     function fault() {
-        alert("WELL DONE！\nYou realized the target state with more　steps than ideal.");
+        alert("WELL DONE！\nYou realized the target state with more steps than ideal.");
     }
     
     document.getElementById('check').onclick = function check(){
