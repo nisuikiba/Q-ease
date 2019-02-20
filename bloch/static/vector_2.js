@@ -205,9 +205,9 @@ function init() {
     }
 }
 
-window.addEventListener('load', init_sub);
+window.addEventListener('load', init2);
 
-function init_sub() {
+function init2() {
 
     //サイズを指定
     const width = 528;
