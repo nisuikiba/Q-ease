@@ -1,4 +1,4 @@
-window.addEventListener('load', init_2);
+window.addEventListener('load', init);
 
 var counter_x = 0;
 var counter_z = 0;
@@ -9,7 +9,7 @@ var counter_t = 0;
 var counter_tt = 0;
 var number_q = 0;
 
-function init_2() {
+function init() {
 
     //サイズを指定
     const width = 640;
