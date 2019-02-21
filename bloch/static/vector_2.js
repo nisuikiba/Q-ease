@@ -8,6 +8,7 @@ var counter_st = 0;
 var counter_t = 0;
 var counter_tt = 0;
 var number_q = 0;
+var flag_q = 0;
 
 function init() {
 
@@ -346,26 +347,35 @@ function init2() {
     }
 
     document.getElementById('q1').onclick = function q1(){
-        target.setFromAxisAngle(Axis["z"], Math.PI);
-        target.multiply(quaternion.clone());  
-        quaternion.copy(target); 
-        number_q = 1;
+        if (flag_q == 0){
+            target.setFromAxisAngle(Axis["z"], Math.PI);
+            target.multiply(quaternion.clone());  
+            quaternion.copy(target); 
+            number_q = 1;
+            flag_q = 1;
+        }
     }
 
     document.getElementById('q2').onclick = function q2(){
-        target.setFromAxisAngle(Axis["x"], -Math.PI/2);
-        target.multiply(quaternion.clone());  
-        quaternion.copy(target);  
-        number_q = 2;
+        if (flag_q == 0){
+            target.setFromAxisAngle(Axis["x"], -Math.PI/2);
+            target.multiply(quaternion.clone());  
+            quaternion.copy(target);  
+            number_q = 2;
+            flag_q = 1;
+        }
     }
 
     document.getElementById('q3').onclick = function q3(){
-        target.setFromAxisAngle(Axis["x"], -Math.PI/2);
-        target.multiply(quaternion.clone());  
-        quaternion.copy(target);  
-        target.setFromAxisAngle(Axis["y"], -Math.PI/4);
-        target.multiply(quaternion.clone());  
-        quaternion.copy(target); 
-        number_q = 3;
+        if (flag_q == 0){
+            target.setFromAxisAngle(Axis["x"], -Math.PI/2);
+            target.multiply(quaternion.clone());  
+            quaternion.copy(target);  
+            target.setFromAxisAngle(Axis["y"], -Math.PI/4);
+            target.multiply(quaternion.clone());  
+            quaternion.copy(target); 
+            number_q = 3;  
+            flag_q = 1;          
+        }
     }
 }
