@@ -1,10 +1,12 @@
 # Q-ease
 Toy box to intuitively understand the fundamental theory of quantum computer.
+[Click here](https://qease.herokuapp.com/bloch/index/) to go to Q ease:.
 
 ---
 
 ## Try Bloch!
 Visualization of Single-Qubit Gates work with Bloch sphere.
+[Click here](https://qease.herokuapp.com/bloch/try/) to play.
 
 ### How to play
 - When a button imitating a single-qubit gate is pushed, the vector rotates in the Bloch sphere.
@@ -17,6 +19,7 @@ Visualization of Single-Qubit Gates work with Bloch sphere.
 
 ## Challenge Bloch!
 Realize Target State Using Single-Qubit Gates.
+[Click here](https://qease.herokuapp.com/bloch/challenge/) to play.
 
 ### How to play
 - This is a game that realizes the target state.
@@ -25,7 +28,7 @@ Realize Target State Using Single-Qubit Gates.
 - You properly use a single-qubit gates, bringing "Your State" closer to the "Target State". 
     - However, please make the single-qubit gates work **as few times as possible**.
 - When "Your State" becomes the same state as "Target State", press the CHECK button and score. 
-    - If you realize the target state with the ideal (minimum) number of steps, "*CONGRATULATION！You realized the target state with the ideal number of steps!*" Will be displayed. 
-    - If you realize the target state with more steps than the ideal (minimum) step number, you will see "*WELL DONE！You realized the target state with more　steps than ideal.*"
+    - If you realize the target state with the ideal (minimum) number of steps, you will see "*CONGRATULATION！You realized the target state with the ideal number of steps!*".
+    - If you realize the target state with more steps than the ideal (minimum) step number, you will see "*WELL DONE！You realized the target state with more　steps than ideal.*".
 - Depending on the problem, there is not just one combination of ideal steps.
 
