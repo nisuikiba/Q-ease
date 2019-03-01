@@ -621,12 +621,8 @@ function init2() {
             }else{
                 well();
             }
-            alert(status_q);
-            alert(status_y);
         }else{
             fault();
-            alert(status_q);
-            alert(status_y);
             location.reload();
         }
         rote_axis_before_q = rote_axis_y;
