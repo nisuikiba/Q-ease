@@ -1,14 +1,223 @@
 window.addEventListener('load', init);
 
+//Target Stateのゲートのカウンタ
+var counter_x_q = 0;
+var counter_y_q = 0;
+var counter_z_q = 0;
+var counter_h_q = 0;
+var counter_s_q = 0;
+var counter_st_q = 0;
+//var counter_t_q = 0;
+//var counter_tt_q = 0;
+
+//Your Stateのゲートのカウンタ
 var counter_x = 0;
+var counter_y = 0;
 var counter_z = 0;
 var counter_h = 0;
 var counter_s = 0;
 var counter_st = 0;
-var counter_t = 0;
-var counter_tt = 0;
-var number_q = 0;
-var flag_q = 0;
+//var counter_t = 0;
+//var counter_tt = 0;
+
+//手数計算用のカウンタ
+var counter_x_sub = 0;
+var counter_y_sub = 0;
+var counter_z_sub = 0;
+var counter_h_sub = 0;
+var counter_s_sub = 0;
+var counter_st_sub = 0;
+//var counter_t_sub = 0;
+//var counter_tt_sub = 0;
+
+//Target Stateの回転の記録
+var rote_x = 0;
+var rote_y = 0;
+var rote_z = 0;
+var rote_yz = 0;
+
+//Your Stateの回転の記録
+var move_x = 0;
+var move_y = 0;
+var move_z = 0;
+var move_yz = 0;
+
+status_q = [rote_x, rote_y, rote_z, rote_yz];
+status_y = [move_x, move_y, move_z, move_yz];
+
+//X軸回転のフラッグ
+var flag_x = 0; 
+var flag_x_q = 0;
+
+//ユーザの手数
+var your_num = 0;
+
+//位相ゲートの回転角
+var z_angle = 1;
+var s_angle = 1/2;
+var st_angle = -1/2;
+var t_angle = 1/4;
+var tt_angle = -1/4;
+
+var rote_axis_y = 0; 
+var rote_axis_old_y = 0;
+
+var rote_axis = 0; 
+var rote_axis_old = 0; 
+
+var phase_old_y = 0;
+
+var phase_old = 0;
+
+var rote_axis_before_q=0;
+
+var ideal_num = 0;
+
+var your_num_repo=0;
+
+function rote_cal_y(){
+    //処理
+    counter_x_sub+=counter_x-counter_x_sub;
+    counter_z_sub+=counter_z;
+    counter_h_sub+=counter_h-counter_h_sub;
+    counter_s_sub+=counter_s;
+    counter_st_sub+=counter_st;
+    status_y[3]=counter_h;
+    if ((status_y[3]%2)!=0){ 
+        //Hが奇数なのでz軸のみ評価　　
+        while(counter_z!=0){
+            status_y[2]+=z_angle;
+            counter_z-=1;
+        }
+        while(counter_s!=0){
+            status_y[2]+=s_angle;
+            counter_s-=1;
+        }
+        while(counter_st!=0){
+            status_y[2]+=st_angle;
+            counter_st-=1;
+        }
+        if(rote_axis_old_y==1){
+            if(status_y[2]>1){
+                status_y[2]=status_y[2]-2;
+            }else if(status_y[2]<=-1){
+                status_y[2]=status_y[2]+2;
+            }
+        }else{
+            if(flag_x==0){ 
+                if(status_y[2]>1){
+                    status_y[2]=status_y[2]-2;
+                }else if(status_y[2]<=-1){
+                    status_y[2]=status_y[2]+2;
+                }
+                phase_old_y=0;
+            }else{ 
+                status_y[2]+=1;
+                if(status_y[2]>1){
+                    status_y[2]=status_y[2]-2;
+                }
+                phase_old_y=1;
+            }
+        }
+    }else{ 
+        //Hが偶数なのでx軸のみ評価
+        status_y[0]=counter_x;
+        if(rote_axis_old_y==1){
+            if(phase_old_y!=status_y[2]){
+                status_y[0]+=1;
+                counter_x+=1;
+            }
+            if(status_y[2]==1){ 
+                flag_x=1;
+            }
+            if((status_y[0]%2)!=0){
+                //xが奇数
+                flag_x = 1;
+            }else{
+                //xが偶数
+                flag_x = 0;
+            } 
+            status_y[2]=0; 
+        }else{
+            if((status_y[0]%2)!=0){
+                //xが奇数
+                flag_x = 1;
+            }else{
+                //xが偶数
+                flag_x = 0;
+            } 
+        }
+    }
+}
+
+function rote_cal_q(){
+    status_q[3]=counter_h_q;
+    if ((status_q[3]%2)!=0){ 
+        //Hが奇数なのでz軸のみ評価　　
+        while(counter_z_q!=0){
+            status_q[2]+=z_angle;
+            counter_z_q-=1;
+        }
+        while(counter_s_q!=0){
+            status_q[2]+=s_angle;
+            counter_s_q-=1;
+        }
+        while(counter_st_q!=0){
+            status_q[2]+=st_angle;
+            counter_st_q-=1;
+        }
+        if(rote_axis_old==1){
+            if(status_q[2]>1){
+                status_q[2]=status_q[2]-2;
+            }else if(status_q[2]<=-1){
+                status_q[2]=status_q[2]+2;
+            }
+        }else{
+            if(flag_x_q==0){ 
+                if(status_q[2]>1){
+                    status_q[2]=status_q[2]-2;
+                }else if(status_q[2]<=-1){
+                    status_q[2]=status_q[2]+2;
+                }
+                phase_old=0;
+            }else{ 
+                status_q[2]+=1;
+                if(status_q[2]>1){
+                    status_q[2]=status_q[2]-2;
+                }
+                phase_old=1;
+            }
+        }
+    }else{ 
+        //Hが偶数なのでx軸のみ評価
+        status_q[0]=counter_x_q;
+        if(rote_axis_old==1){
+            if(phase_old!=status_q[2]){
+                status_q[0]+=1;
+                counter_x_q+=1;
+            }
+            if(status_q[2]==1){ 
+                flag_x_q=1;
+            }
+            if((status_q[0]%2)!=0){
+                //xが奇数
+                flag_x_q = 1;
+            }else{
+                //xが偶数
+                flag_x_q = 0;
+            } 
+            status_q[2]=0; 
+        }else{
+            if((status_q[0]%2)!=0){
+                //xが奇数
+                flag_x_q = 1;
+            }else{
+                //xが偶数
+                flag_x_q = 0;
+            } 
+        }
+    }
+}
 
 function init() {
 
@@ -100,7 +309,6 @@ function init() {
 
     var quaternion = arrowHelper.quaternion;
     var target = new THREE.Quaternion();
-    //document.getElementById("Test").innerHTML = "HAHAHA";
     
     //xゲート
     document.getElementById('x').onclick = function xgate(){
@@ -113,6 +321,8 @@ function init() {
        }else{
            flag = 0;
            counter_x += 1;
+           rote_axis_old_y = rote_axis_y;
+           rote_cal_y();
        }
     }
 
@@ -127,6 +337,8 @@ function init() {
         }else{x
             flag = 0;
             counter_z += 1;
+            rote_axis_old_y = rote_axis_y;
+            rote_cal_y();
         }
     }
 
@@ -141,6 +353,13 @@ function init() {
         }else{
             flag = 0;
             counter_h += 1;
+            rote_axis_old_y = rote_axis_y;
+            if(rote_axis_y==0){ 
+                rote_axis_y=1;
+            }else{ 
+                rote_axis_y=0;
+            }
+            rote_cal_y();
         }
     }
 
@@ -155,6 +374,8 @@ function init() {
         }else{
             flag = 0;
             counter_s += 1;
+            rote_axis_old_y = rote_axis_y;
+            rote_cal_y();
         }
     }
 
@@ -169,9 +390,12 @@ function init() {
         }else{
             flag = 0;
             counter_st += 1;
+            rote_axis_old_y = rote_axis_y;
+            rote_cal_y();
         }
     }
 
+    /*
     //tゲート
     document.getElementById('t').onclick = function tgate(){
         if(flag < Math.PI/4){
@@ -183,6 +407,8 @@ function init() {
         }else{
             flag = 0;
             counter_t += 1;
+            rote_axis_old_y = rote_axis_y;
+            rote_cal_y();
         }
     }
 
@@ -197,8 +423,10 @@ function init() {
         }else{
             flag = 0;
             counter_tt += 1;
+            rote_axis_old_y = rote_axis_y;
+            rote_cal_y();
         }
-    }
+    }*/
 
     //はじめからボタン
     document.getElementById('start').onclick = function start(){
@@ -297,85 +525,169 @@ function init2() {
     var quaternion = arrowHelper.quaternion;
     var target = new THREE.Quaternion();
 
+    //xゲート
+    function xgate(){
+        target.setFromAxisAngle(Axis["z"], Math.PI);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_x_q += 1;
+    }
+ 
+    //zゲート
+    function zgate(){
+        target.setFromAxisAngle(Axis["y"], Math.PI);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_z_q += 1;
+    }
+    
+    //hゲート
+    function hgate(){
+        target.setFromAxisAngle(Axis["y-z"], Math.PI);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_h_q += 1;
+    }
+
+    //sゲート
+    function sgate(){
+        target.setFromAxisAngle(Axis["y"], Math.PI/2);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_s_q += 1;
+    }
+
+    //stゲート
+    function stgate(){
+        target.setFromAxisAngle(Axis["y"], -Math.PI/2);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_st_q += 1;
+    }
+
+    /*
+    //tゲート
+    function tgate(){
+        target.setFromAxisAngle(Axis["y"], Math.PI/4);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_t_q += 1;
+    }
+
+    //ttゲート
+    function ttgate(){
+        target.setFromAxisAngle(Axis["y"], -Math.PI/4);
+        target.multiply(quaternion.clone());  
+        quaternion.copy(target);  
+        counter_tt_q += 1;
+    }*/
+
+    func_first = ["xgate", "hgate"];
+    func_e = ["zgate", "sgate", "stgate"];
+    func_s = ["zgate", "sgate", "stgate", "tgate", "ttgate"];
     
     function correct() {
         alert("CONGRATULATION！\nYou realized the target state with the ideal number of steps!");
     }
 
+    function well() {
+        alert("WELL DONE！\nYou realized the target state with more　steps than ideal.");
+    }
+
     function fault() {
-        alert("WELL DONE！\nYou realized the target state with more steps than ideal.");
+        alert("ERROR！\nIt is not the target state.");
     }
     
     document.getElementById('check').onclick = function check(){
-        if(number_q==1){
-            judge_q1();
-        }else if(number_q==2){
-            judge_q2();
-        }else if(number_q==3){
-            judge_q3();
+        if(number_q == 0){
+            judge_e();
+        }else if(number_q == 1){
+            judge_s();
         }
     }
-
-    function judge_q1(){
-        if(counter_x == 1 && counter_z == 0 && counter_h == 0 && counter_s == 0 && counter_st == 0 && counter_t == 0 && counter_tt == 0){
-            correct();
-            location.reload();
+    
+    function judge_e(){
+        //ideal_numを計算
+        if(rote_axis_before_q==rote_axis){ //同界
+            ideal_num=1;
+        }else{
+            ideal_num=2;
+        }   
+        your_num_repo += your_num;
+        your_num = counter_x_sub+counter_z_sub+counter_h_sub+counter_s_sub+counter_st_sub-your_num_repo;
+        if((status_q[2]==status_y[2])&&(status_q[3]%2==status_y[3]%2)){
+            if(your_num<=ideal_num){
+                correct();
+            }else{
+                well();
+            }
+            alert(status_q);
+            alert(status_y);
         }else{
             fault();
+            alert(status_q);
+            alert(status_y);
             location.reload();
+        }
+        rote_axis_before_q = rote_axis_y;
+    }
+
+    function judge_s(){
+        correct();
+    }
+
+    var number_q = 10;
+
+    document.getElementById('easy').onclick = function(){
+        number_q = 0;
+    }
+
+    document.getElementById('standard').onclick = function(){
+        number_q = 1;
+        alert("I'M SORRY!\nThis version is currently under construction.");
+    }
+
+    var random = 0;
+
+    document.getElementById('question').onclick = function question(){
+        if(number_q == 0){
+            easy();
+        }else if(number_q == 1){
+            standard();
         }
     }
 
-    function judge_q2(){
-        if((counter_x == 0 && counter_z == 1 && counter_h == 1 && counter_s == 0 && counter_st == 0 && counter_t == 0 && counter_tt == 0)||(counter_x == 1 && counter_z == 0 && counter_h == 1 && counter_s == 0 && counter_st == 0 && counter_t == 0 && counter_tt == 0)){
-            correct();
-            location.reload();
+    function easy(){
+        rote_axis_old = rote_axis;
+        if((status_q[2]==0)||(status_q[2]==1)){
+            random = Math.floor(Math.random()*func_first.length);
         }else{
-            fault();
-            location.reload();
+            random = 1;
         }
+        if(random==0){ 
+            if(rote_axis_old==0){ //現在x軸回転
+                xgate();
+            }else{ //現在z軸回転　
+                hgate();
+                xgate();
+            }
+            rote_axis = 0;
+        }else{ 
+            if(rote_axis_old==0){ //現在x軸回転　
+                hgate(); 
+                random = Math.floor(Math.random()*func_e.length);
+                eval(func_e[random])();
+            }else{ //現在z軸回転
+                random = Math.floor(Math.random()*func_e.length);
+                eval(func_e[random])();
+            }
+            rote_axis = 1;
+        }  
+        rote_cal_q();
     }
 
-    function judge_q3(){
-        if((counter_x == 1 && counter_z == 0 && counter_h == 1 && counter_s == 0 && counter_st == 0 && counter_t == 0 && counter_tt == 1)||(counter_x == 0 && counter_z == 1 && counter_h == 1 && counter_s == 0 && counter_st == 0 && counter_t == 0 && counter_tt == 1)||(counter_x == 0 && counter_z == 0 && counter_h == 1 && counter_s == 1 && counter_st == 0 && counter_t == 1 && counter_tt == 0)){
-            correct();
-            location.reload();
-        }else{
-            fault();
-            location.reload();
-        }
+    function standard(){
+        //準備中
     }
 
-    document.getElementById('q1').onclick = function q1(){
-        if (flag_q == 0){
-            target.setFromAxisAngle(Axis["z"], Math.PI);
-            target.multiply(quaternion.clone());  
-            quaternion.copy(target); 
-            number_q = 1;
-            flag_q = 1;
-        }
-    }
-
-    document.getElementById('q2').onclick = function q2(){
-        if (flag_q == 0){
-            target.setFromAxisAngle(Axis["x"], -Math.PI/2);
-            target.multiply(quaternion.clone());  
-            quaternion.copy(target);  
-            number_q = 2;
-            flag_q = 1;
-        }
-    }
-
-    document.getElementById('q3').onclick = function q3(){
-        if (flag_q == 0){
-            target.setFromAxisAngle(Axis["x"], -Math.PI/2);
-            target.multiply(quaternion.clone());  
-            quaternion.copy(target);  
-            target.setFromAxisAngle(Axis["y"], -Math.PI/4);
-            target.multiply(quaternion.clone());  
-            quaternion.copy(target); 
-            number_q = 3;  
-            flag_q = 1;          
-        }
-    }
 }
