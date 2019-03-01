@@ -23,12 +23,16 @@ Realize Target State Using Single-Qubit Gates.
 
 ### How to play
 - This is a game that realizes the target state.
-- Currently, the problem is 3 questions from Q1 to Q3.
-- First, press problem button(Q1-Q3). "Target STate" is displayed. 
+- First, please select difficulty level.
+    - Currently, only Easy mode can be used.
+- Use the GENERATE button to generate the problem.
+    - The problem is randomly generated.
+    - It is possible to continue generating problems until you have created the problem you want to solve.
 - You properly use a single-qubit gates, bringing "Your State" closer to the "Target State". 
     - However, please make the single-qubit gates work **as few times as possible**.
 - When "Your State" becomes the same state as "Target State", press the CHECK button and score. 
     - If you realize the target state with the ideal (minimum) number of steps, you will see "*CONGRATULATION！You realized the target state with the ideal number of steps!*".
     - If you realize the target state with more steps than the ideal (minimum) step number, you will see "*WELL DONE！You realized the target state with more　steps than ideal.*".
+    - If you press the CHECK button without realizing the target state, you will see "*ERROR! It is not the target state.*" .
 - Depending on the problem, there is not just one combination of ideal steps.
 
