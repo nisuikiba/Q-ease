@@ -591,7 +591,7 @@ function init2() {
     }
 
     function well() {
-        alert("WELL DONE！\nYou realized the target state with more　steps than ideal.");
+        alert("WELL DONE！\nYou realized the target state with more steps than ideal.");
     }
 
     function fault() {
