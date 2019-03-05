@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Draw Gates!</title>
+        
+        {% load static %}
+        <script src="{{ STATIC_URL }}action.js" type="text/javascript"></script>
+        <script type="text/javascript" src="fonts/helvetiker_regular.typeface.js"></script>
+        <script src="js/utils/FontUtils.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
+        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}apple-touch-icon-180x180.png">　
+
+    </head>
+    <body>
+
+        <h3>Q ease:&emsp;</h3>
+        <br><br>
+        <h1>Draw Gates!</h1>
+        <h2>Draw a Title Image Like a Quantum Qates</h2>
+
+        <div align="center"; style="float:left;  margin-left:320px; margin-top:20px;">
+            <canvas id="canvas" width="800" height="300" style="border: 2px solid rgb(236, 236, 236) "></canvas>
+        </div>
+
+        <div align="right"; style="float:right; margin-top:250px; margin-right:180px;">
+            <a class="col" id="data_url" href="" download="image.png" style="background: rgb(226, 21, 89); font-size: 13px; width: 100px; height:28px;" onclick="get();">DOWNLOAD</a>
+        </div>
+        <div align="right"; style="float:right; margin-top:10px; margin-right:180px;">
+            <a class="col" style="background: rgb(226, 21, 89); font-size: 13px; width: 100px; height:28px;" onclick="restart();">RESTART</a>
+        </div>
+
+        <div align="left" style="float:left; margin-top:25px;">
+            <span style="color:#727272; margin-left:280px; font-size: 15px">Bit Number</span>
+            <span style="color:#727272; margin-left:245px; font-size: 15px">Paint Gate Color and Set Text</span>
+            <span style="color:#727272; margin-left:260px; font-size: 15px">Set Your Gate</span>
+        </div>
+        
+        <div align="left"; class="gatebox" style="float:left; margin-top:15px; margin-left:200px; width: 200px; height: 75px;">
+            <input type="text" id="counter" style="float:left; margin-left:17px; margin-top:10px; font-size: 20px; text-align: center; width:50px; height:50px;" value="1">
+            <a input type="button" class="btn" style="float:left; margin-left:20px; margin-top:10px; background:#da2932; font-size: 20px; width: 40px; height: 40px; line-height: 38px;" onclick="countUp();lineAdd()">+</a>
+            <a input type="button" class="btn" style="float:left; margin-left:20px; margin-top:10px; background: #29b0da; font-size: 20px; width: 40px; height: 40px; line-height: 38px;" onclick="countDown();lineSuv()">-</a>
+        </div>
+
+        <div align="center"; class="gatebox" style="float:left; margin-top:15px; margin-left:100px; width: 350px; height: 170px;">            
+            <a class="dam" id=dam style="float:left; margin-left:15px; margin-top:10px;"></a>
+            <a class="col" id=skyblue style="float:left; margin-left:20px; margin-top:10px; background: #29b0da;" onclick="skyblue();"></a>
+            <a class="col" id=limegreen style="float:left; margin-left:20px; margin-top:10px; background: #9ceb43" onclick="limegreen();"></a>
+            <a class="col" id=red style="float:left; margin-left:20px; margin-top:10px; background: #da2932;" onclick="red();"></a>
+            <a class="col" id=pink style="float:left; margin-left:20px; margin-top:10px; background: rgb(226, 21, 89)" onclick="pink();"></a>
+            <a class="col" id=orange style="float:left; margin-left:20px; margin-top:10px; background: rgb(248, 160, 27)" onclick="orange();"></a>
+            <a class="col" id=blue style="float:left; margin-left:20px; margin-top:10px; background: rgb(31, 102, 255)" onclick="blue();"></a>
+            <a class="col" id=green style="float:left; margin-left:20px; margin-top:10px; background: rgb(0, 156, 52)" onclick="green();"></a>
+            <a class="col" id=yellow style="float:left; margin-left:20px; margin-top:10px; background: rgb(255, 229, 84)" onclick="yellow();"></a>
+            <a class="col" id=purple style="float:left; margin-left:20px; margin-top:10px; background: rgb(181, 89, 209)" onclick="purple();"></a>
+            <a class="col" id=brown style="float:left; margin-left:20px; margin-top:10px; background: rgb(145, 101, 75)" onclick="brown();"></a>
+            <input type="text" id="txt1" size="6" style="float:left; margin-left:110px; margin-top:30px; font-size: 20px; text-align: center; width:50px; height:50px;" value="" maxlength="1">
+            <a input type="button" class="btn" style="float:left; margin-left:30px; margin-top:30px; background: rgb(226, 21, 89); font-size: 12px; width: 50px; height: 50px; line-height: 48px;" onclick="getValue('txt1');">Apply</a>
+        </div>
+        
+        <div align="left"; class="gatebox" style="float:left; margin-top:15px; margin-left:100px; width: 235px; height: 157px;">            
+            <a input type="button" class="col" style="float:left; margin-left:10px; margin-top:50px; background: #919191; font-size: 20px; width: 40px; height: 40px; line-height: 38px; border-radius: 50%;" onclick="left();">←</a>
+            <a input type="button" class="col" style="float:left; margin-left:10px;  background: #919191; font-size: 20px; width: 40px; height: 40px; line-height: 38px; border-radius: 50%;" onclick="up();">↑</a>
+            <a input type="button" class="col" style="float:left; margin-left:10px;  margin-top:50px; background: #919191; font-size: 20px; width: 40px; height: 40px; line-height: 38px; border-radius: 50%;" onclick="right();">→</a>
+            <a input type="button" class="col" style="float:left; margin-left:30px;  margin-top:46px; background: rgb(226, 21, 89); font-size: 12px; width: 50px; height: 50px; line-height: 48px; border-radius: 50%;" onclick="send();">Set</a>
+            <a input type="button" class="col" style="float:left; margin-left:60px; margin-top:7px; background: #919191; font-size: 20px; width: 40px; height: 40px; line-height: 38px; border-radius: 50%;" onclick="down();">↓</a>
+        </div>
+
+        <div align = "center" style = "margin-top:615px;">
+            <a class ="info" href = https://drive.google.com/file/d/1Qh8czv02dfFoITkBR9sTZ5VPaG0fmWnH/view?usp=sharing><h2>Tutorial Video</h2></a>
+            <a class ="info" style = "margin-left:30px" href = "index_en.html"><h2>About Q ease:</h2></a>
+            <a class ="info" style = "margin-left:30px" href = https://github.com/nisuikiba/Q-ease><h2>Source Code</h2></a>
+        </div>
+
+    </body>
+    <script src="{{ STATIC_URL }}canvas.js" type="text/javascript"></script>
+</html>

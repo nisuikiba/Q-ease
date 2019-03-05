@@ -21,3 +21,6 @@ def tryview(request):
 
 def challengeview(request):
     return render(request, 'challenge.html')
+
+def drawview(request):
+    return render(request, 'draw.html')

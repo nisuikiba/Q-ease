@@ -6,4 +6,5 @@ urlpatterns = [
     path('index_ja/', views.jaview, name='jaview'), 
     path('try/', views.tryview, name='tryview'), 
     path('challenge/', views.challengeview, name='challengeview'),
+    path('draw/', views.tryview, name='drawview'), 
 ]

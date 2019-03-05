@@ -203,3 +203,36 @@ span{
     display: inline-block;
     text-align: center;
 }
+
+.col{
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    line-height: 28px;
+    text-decoration: none;
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.col:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
+.dam{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 70px;
+    text-align: center;
+    width:72px; 
+    height:72px;
+    background: rgb(226, 21, 89);/*ボタン色*/
+    color: #FFF;
+    border-radius: 3px;
+}
