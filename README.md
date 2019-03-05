@@ -36,3 +36,7 @@ Realize Target State Using Single-Qubit Gates.
     - If you press the CHECK button without realizing the target state, you will see "*ERROR! It is not the target state.*" .
 - Depending on the problem, there is not just one combination of ideal steps.
 
+---
+
+## Draw Gates！
+
