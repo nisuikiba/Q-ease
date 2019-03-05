@@ -39,4 +39,16 @@ Realize Target State Using Single-Qubit Gates.
 ---
 
 ## Draw Gates！
+Draw a Title Image Like a Quantum Qates.
+[Click here](https://qease.herokuapp.com/bloch/draw/) to play.
 
+### How to play
+- Use "Bit Number" to set the number of qubits.
+    - The number of qubits can be increased to four.
+- Please use "Paint Gate Color and Set Text" to decide the color of the quantum gate and the text to put in it.
+    - Text is limited to one character.
+    - After entering the text in the box, please press the APPLY button.
+- Use "Set Your Gate" to decide where to place the quantum gate you made.
+    - After setting the position, please push the SET button.
+- When the title is completed, let's download the png image by pushing the DOWNLOAD button.
+    - Internet Explorer can not do this work([Details](https://developer.mozilla.org/ja/docs/Web/HTML/Element/a#Browser_compatibility)).
