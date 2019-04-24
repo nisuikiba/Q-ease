@@ -8,9 +8,6 @@
         <script src="{{ STATIC_URL }}vector_2.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
         <script src="{{ STATIC_URL }}OrbitControls.js"></script>
-        <script type="text/javascript" src="fonts/helvetiker_regular.typeface.js"></script>
-        <script src="js/geometries/TextGeometry.js"></script>
-        <script src="js/utils/FontUtils.js"></script>
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
         <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}apple-touch-icon-180x180.png">　
@@ -23,18 +20,31 @@
         <h1>Challenge Bloch!</h1>
         <h2>Realize Target State Using Single-Qubit Gates</h2>
 
-        <div align="left" style="margin-top:10px;"><span style="color:#727272; margin-left:300px; font-size: 18px">Target State</span><span style="color:#727272; margin-left:560px; font-size: 18px">Your State</span></div>
+        <div align="left" style="margin-top:10px;">
+            <span style="color:#727272; margin-left:300px; font-size: 18px">Target State</span>
+            <span style="color:#727272; margin-left:560px; font-size: 18px">Your State</span>
+        </div>
 
         <div style="float:left; margin-left:100px; margin-top:20px;">
-            <canvas id="subCanvas"></canvas></div>
+            <canvas id="subCanvas"></canvas>
+        </div>
         
         <div style="float:right; margin-right:100px; margin-top:20px;">
-            <canvas id="myCanvas"></canvas></div>
+            <canvas id="myCanvas"></canvas>
+        </div>
 
-        <div id="easy" style="float:left; margin-left:270px; margin-top:20px; color: rgb(226, 21, 89); font-weight:bold;"><label><input type="radio" name="level">EASY</label></div>
-        <div id="standard" style="float:left; margin-left:50px; margin-top:20px; color: rgb(226, 21, 89); font-weight:bold;"><label><input type="radio" name="level">STANDARD</label></div>
+        <div id="easy" style="float:left; margin-left:270px; margin-top:20px; color: rgb(226, 21, 89); font-weight:bold;">
+            <label><input type="radio" name="level">EASY</label>
+        </div>
+        <div id="standard" style="float:left; margin-left:50px; margin-top:20px; color: rgb(226, 21, 89); font-weight:bold;">
+            <label><input type="radio" name="level">STANDARD</label>
+        </div>
 
-        <div align="left" style="margin-top:400px;"><span style="color:#29b0da; margin-left:980px;">x-</span>&emsp;<span style="color:#da2932;">y-</span>&emsp;<span style="color:#9ceb43;">z-</span></div>
+        <div align="left" style="margin-top:400px;">
+            <span style="color:#29b0da; margin-left:980px;">x-</span>&emsp;
+            <span style="color:#da2932;">y-</span>&emsp;
+            <span style="color:#9ceb43;">z-</span>
+        </div>
 
         <div align="center"; class="gatebox" style="margin-top:20px; width: 850px;">            
             <a class="greenBtn" id=x style="float:left; margin-left:20px; margin-top:10px;">X</a>
@@ -44,12 +54,14 @@
             <a class="blueBtn" id=st style="float:left; margin-left:35px; margin-top:10px; width: 17px;">S<sup><small>&dagger;</small></sup></a>
             <a class="btn" id=start style="float:left; margin-left:30px; margin-top:6px;">RESTART</a>
             <a class="btn" id=check style="float:left; margin-left:30px; margin-top:6px; background:#29b0da;">CHECK</a>
-            <a class="btn" id=question style="float:left; margin-left:30px; margin-top:6px; background:#da2932;">GENERATE</a></div>
+            <a class="btn" id=question style="float:left; margin-left:30px; margin-top:6px; background:#da2932;">GENERATE</a>
+        </div>
 
-            <div align = "center" style = "margin-top:15px;">
+        <div align = "center" style = "margin-top:15px;">
             <a class ="info" href = https://drive.google.com/file/d/1aB_8l9Z2wp64BCDmvJ4D96leEAM4nfOg/view?usp=sharing><h2>Tutorial Video</h2></a>
             <a class ="info" style = "margin-left:30px" href = "{% url 'index' %}"><h2>About Q ease:</h2></a>
-            <a class ="info" style = "margin-left:30px" href = https://github.com/nisuikiba/Q-ease><h2>Source Code</h2></a></div>
+            <a class ="info" style = "margin-left:30px" href = https://github.com/nisuikiba/Q-ease><h2>Source Code</h2></a>
+        </div>
 
     </body>
 </html>

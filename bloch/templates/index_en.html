@@ -21,25 +21,46 @@
         <span style="font-size:16px; color:rgb(226, 21, 89); display:block; margin-top:30px;">Toy box to intuitively understand the fundamental theory of quantum computer</span>
 
         <div align = "center"; style="margin-top:40px;">
-                <canvas id="topCanvas"></canvas></div>
-
-        <div align="center" style="margin-top:60px;">
-            <a href="{% url 'drawview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px;"><span style="font-size: 18px;">Draw Gates!</span></a> 
-            <a href="{% url 'tryview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px; margin-left:200px;"><span style="font-size: 18px;">Try Bloch!</span></a> 
-            <a href="{% url 'challengeview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px; margin-left:200px;"><span style="font-size: 18px;">Challenge Bloch!</span></a>
+            <canvas id="topCanvas"></canvas>
         </div>
 
-        <div align="center" style="margin-top:20px;">
-            <span style="color:rgb(226, 21, 89); display:inline-block; padding-right : 140px; font-size: 10px">Draw a Title Image Like a Quantum Qates</span>
-            <span style="color:rgb(226, 21, 89); display:inline-block; padding-right: 120px; font-size: 10px">Visualization of Single-Qubit Gates work with Bloch sphere</span>
-            <span style="color:rgb(226, 21, 89); display:inline-block; font-size: 10px">Realize Target State Using Single-Qubit Gates</span>
+        <div align="center" style="margin-top:60px;">
+
+            <div style="display:inline-block; padding-right: 100px; padding-left:40px;">
+                <div align="center">
+                    <a href="{% url 'drawview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px;"><span style="font-size: 18px;">Draw Gates!</span></a> 
+                </div>
+                <div align="center" style="margin-top:30px;">
+                    <span style="color:rgb(226, 21, 89); font-size: 10px">Draw a Title Image Like a Quantum Qates</span>
+                </div>
+            </div>
+
+            <div style="display:inline-block; padding-right: 70px;">
+                <div align="center">
+                    <a href="{% url 'tryview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px;"><span style="font-size: 18px;">Try Bloch!</span></a> 
+                </div>
+                <div align="center" style="margin-top:30px;">
+                    <span style="color:rgb(226, 21, 89); font-size: 10px">Visualization of Single-Qubit Gates work with Bloch sphere</span>
+                </div>
+            </div>
+
+            <div style="display:inline-block;">
+                <div align="center">
+                    <a href="{% url 'challengeview' %}" class = "btn" style="width: 160px; height: 160px; line-height: 160px;"><span style="font-size: 18px;">Challenge Bloch!</span></a>
+                </div>
+                <div align="center" style="margin-top:30px;">
+                    <span style="color:rgb(226, 21, 89); font-size: 10px">Realize Target State Using Single-Qubit Gates</span>
+                </div>
+            </div>
+
         </div>
 
         <footer>
-                <div align = "center" style="bottom: 10px; position: fixed; width: 100%;">
+            <div align = "center" style="bottom: 10px; position: fixed; width: 100%;">
                 <a class="info" href = "{% url 'index' %}"><h2>English</h2></a>&emsp;
-                <a class="info" href = "{% url 'jaview' %}"><h2>日本語</h2></a></div>
-            </footer>
+                <a class="info" href = "{% url 'jaview' %}"><h2>日本語</h2></a>
+            </div>
+        </footer>
 
     </body>
 </html>
